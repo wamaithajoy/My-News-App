@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News App</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"/>
+</head>
+<style>
+    nav{
+        list-style: none;
+    }
+    nav li{
+        float: right;
+        padding: 2%;
+        
+    }
+    .navbar{
+        margin-top: -6.5%;
+        margin-right: 8%;
+        font-size:120%;
+        cursor: pointer;
+        margin-left: 58%;
+    }
+    .navbar a{
+        padding: 14px 16px;
+    }
+    .navbar a:hover{
+        background-color: red;
+    }
+    .nav:hover{
+        background-color: red;
+    }
+    nav li:hover {
+        background-color: red;
+      }
+    </style>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    What's the News?    
+                </h1>
+            </div>
+
+        </div>
+        <nav class="navbar">
+            <a href="{%url 'politics'%}" >Politics</a>
+            <a href="{%url 'sports'%}" >Sports</a>
+            <a href="{%url 'education'%}" >Education</a>
+            <a href="{%url 'travel'%}" >Travel</a>
+            <a href="{%url 'health'%}" >Health</a>
+        </nav>
+
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="rows">
+                <div class="column is-offset-16 15-10">
+                    {% for title,desc, i in mylist%}
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">{{title}}</span>
+                                        <br>
+                                        <img src="{{i}}" alt="">
+                                        <span class="subtitle">{{desc}}</span>
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+                    {% endfor%}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <footer class="footer">Contact Us</footer>
+
+</body>
+</html>
